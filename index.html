@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Kinematic Solver</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+        <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+        <script src='script.js'></script>
+    </head>
+
+    <body>
+        <!--NAVIGATION BAR-->
+        <nav class="navbar navbar-expand-lg navbar fixed-top navbar-light bg-light justify-content-between">
+          <a class="navbar-brand" href="#">Alec Petersen</a>
+          <h5>Kinematic Solver</h5>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        
+        <section class="main-container">
+            <article class="index-intro">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <p>Simply put in your given components of the velocity, acceleration, positions etc and let the solver figure out the rest. Remember to put 0's where appropriate.</p>
+
+                        <div ng-controller="myCtrl">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <br><h6>Initial Velocity (x)</h6>
+                                    <input type="text" ng-model="ivx" placeholder="0">
+                                    <br><h6>Initial Velocity (y)</h6>
+                                    <input type="text" ng-model="ivy" placeholder="0">
+                                    <br><h6>Final Velocity (x)</h6>
+                                    <input type="text" ng-model="fvx" placeholder="0">
+                                    <br><h6>Final Velocity (y)</h6>
+                                    <input type="text" ng-model="fvy" placeholder="0">
+                                </div>
+                                <div class="col-sm-3">
+                                    <br><h6>Acceleration (x)</h6>
+                                    <input type="text" ng-model="ax" placeholder="0">
+                                    <br><h6>Acceleration (y)</h6>
+                                    <input type="text" ng-model="ay" placeholder="0">
+                                    <br><h6>Initial Position (x)</h6>
+                                    <input type="text" ng-model="ix" placeholder="0">
+                                    <br><h6>Initial Position (y)</h6>
+                                    <input type="text" ng-model="iy" placeholder="0">
+                                </div>
+                                <div class="col-sm-3">
+                                    <br><h6>Final Position (x)</h6>
+                                    <input type="text" ng-model="fx" placeholder="0">
+                                    <br><h6>Final Position (y)</h6>
+                                    <input type="text" ng-model="fy" placeholder="0">
+                                    <br><h6>Time</h6>
+                                    <input type="text" ng-model="tt" placeholder="0">
+                                    <br><br><button class="btn btn-success" ng-click="solveKinematics()">Solve</button><br>
+                                </div>
+                                {{validInput}}
+                                <!--<img src="Capture.JPG"></img>-->
+                                <canvas id="line" class="chart chart-line" chart-data="data"
+                                    chart-labels="labels" chart-series="series" chart-options="options"
+                                    chart-dataset-override="datasetOverride" chart-click="onClick">
+                                </canvas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article> 
+            <article class="index-intro">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                    </div>
+                </div>
+            </article>    
+        </section>    
+    </body>
+</html>
